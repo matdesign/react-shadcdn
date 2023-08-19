@@ -14,6 +14,10 @@ const sidebarNavItems: ISidebarNavItem[] = [
 		href: "/home",
 	},
 	{
+		title: "Companies",
+		href: "/home/companies",
+	},
+	{
 		title: "Settings",
 		href: "/home/settings",
 	},
