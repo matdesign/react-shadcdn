@@ -4,8 +4,20 @@ import { useRouter } from "next/navigation";
 import { Inter } from "next/font/google";
 import { useGlobalContext } from "../context/store";
 import { useLayoutEffect } from "react";
+import SidebarNav from "@/components/SidebarNav";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const sidebarNavItems: ISidebarNavItem[] = [
+	{
+		title: "Agents",
+		href: "/home",
+	},
+	{
+		title: "Settings",
+		href: "/home/settings",
+	},
+];
 
 export default function HomeLayout({ children }: { children: React.ReactNode }) {
 	const { username, isLogin } = useGlobalContext();
@@ -18,8 +30,12 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
 	}, [isLogin, router]);
 
 	return (
-		<div>
-			<h1>User Name: {username}</h1>
+		<div className="flex">
+			<aside className="w-1/5">
+				<h1 className="text-4xl my-8 mx-3 text-center font-bold">maxo.ai</h1>
+				<SidebarNav items={sidebarNavItems} />
+			</aside>
+
 			{children}
 		</div>
 	);
